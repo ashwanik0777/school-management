@@ -381,24 +381,3 @@ Maintainer: ashwanik0777
 Repo: https://github.com/ashwanik0777/school-management
 
 ---
-
-How to apply this README
-- Option A (manual): Copy this content into your repository's README.md locally and commit:
-  git checkout -b docs/readme-enhance
-  # replace README.md content
-  git add README.md
-  git commit -m "docs: enhance README (visuals, icons, diagrams)"
-  git push origin docs/readme-enhance
-  Open a Pull Request and merge.
-
-- Option B (web): Open README.md on GitHub, click Edit, paste the content, preview, and commit changes on a branch or directly to main.
-
-Notes about pushing from automation
-- If an automated push previously failed with a "sha" error, update your automation to GET the file contents first to retrieve the file's sha, then include it when sending the update (this is required when replacing an existing file via API).
-
-If you'd like, I can:
-- further tailor the README to your exact tech stack and steps (send me the stack),
-- add real screenshots (upload images) and I will update the README with embeds,
-- prepare a patch file or a branch/PR for you — tell me which branch to target and whether I should create a PR.
-
-Thank you — I corrected typos, expanded sections, added icons and badges, improved the mermaid diagrams, and included a troubleshooting note about the 422 sha error. If you want a more design-heavy README (custom SVG icons, hero banner, or embedded GIFs), upload the assets and I'll integrate them next.
