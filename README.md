@@ -1,149 +1,241 @@
 # School Management System
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/ashwanik0777/school-management)](https://github.com/ashwanik0777/school-management)
 [![Top Language](https://img.shields.io/github/languages/top/ashwanik0777/school-management)](https://github.com/ashwanik0777/school-management)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
+[![Issues Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
 
-A modern, modular, and production-ready School Management System to manage students, staff, classes, scheduling, attendance and reporting — designed for small to medium educational institutions.
+A polished, user-friendly, and production-ready School Management System that helps administrators, teachers, and parents manage students, classes, attendance, exams, and reports with ease.
 
 ---
 
-> A polished, user-friendly dashboard for administrators, teachers and parents — built to reduce paperwork, improve communication, and provide actionable insights.
+:rocket: Key highlights
+- Clean role-based dashboards (Admin / Teacher / Parent)
+- Modular backend and extensible frontend
+- CSV import/export and scheduled reports
+- Container-ready (Docker) and CI-friendly
+- Secure RBAC + audit logging
 
 ---
 
 Table of Contents
-- Project Overview
-- Highlights
-- Features
-- Tech Stack (fill in)
-- Quick Start
-- Configuration
-- Usage
-- Architecture & Diagrams
-  - System Architecture (Mermaid)
-  - Database ER Diagram (Mermaid)
-  - Enrollment Flow (Mermaid sequence)
-- Screenshots / Demo
-- Contributing
-- Roadmap
-- License
-- Contact
+1. Project Overview
+2. Quick Demo
+3. Features
+4. Visual Badges & Icons
+5. Tech Stack (fill in)
+6. Quick Start (Local & Docker)
+7. Configuration (.env example)
+8. Development Tips
+9. Database, Migrations & Seeders
+10. Testing & CI
+11. Deployment
+12. Architecture & Diagrams (Mermaid)
+13. Screenshots & Assets
+14. Contributing
+15. Roadmap
+16. Troubleshooting (including PUT 422 error)
+17. License & Contact
 
 ---
 
-Project Overview
-This repository contains the code and documentation for a School Management System with a clean UX and modular backend. It centralizes administrative workflows: enrollment, attendance, timetabling, grading, reporting and notifications. The design emphasizes security, auditability, and easy extensibility.
+## 1. Project Overview
+This repository contains the source and docs for a School Management System focused on simplicity, reliability, and extensibility. It centralizes administrative tasks such as enrollment, attendance, timetables, grade management and reporting.
 
-Highlights
-- Clean, intuitive dashboard for Admin / Teacher / Parent roles
-- Role-based access control and audit logs
-- CSV import/export, scheduled reports, and notification integration
-- Designed for containerized deployment (Docker) and horizontal scaling
-
-Features
-- Student profiles, enrollment history, guardians/contact info
-- Teacher and staff management with role assignments
-- Class, section and subject management
-- Attendance recording (daily / period-wise) and reports
-- Timetable scheduling with conflict detection
-- Gradebook, exam creation, result generation and export
-- Notifications: email (SMTP), optional SMS/webhooks
-- Bulk import/export via CSV
-- Admin reporting and analytics dashboards
-- Background workers for heavy tasks (reports, email, imports)
-
-Tech Stack (replace placeholders with actual stack)
-- Backend: Node.js + Express / Django / Laravel / Spring Boot (replace)
-- Frontend: React / Vue / Angular (replace)
-- Database: PostgreSQL / MySQL / SQLite (replace)
-- Caching: Redis (optional)
-- Auth: JWT or session-based with RBAC
-- Storage: S3-compatible object storage (optional)
-- DevOps: Docker, docker-compose, CI/CD (GitHub Actions)
+Goals:
+- Fast onboarding for staff
+- Clear separation of concerns (API, UI, worker)
+- Secure role-based access and logging
+- Easy CI/CD and container-based deployment
 
 ---
 
-Quick Start (example, adapt to your stack)
+## 2. Quick Demo
+Add a short GIF or screenshot to docs/assets/demo.gif to show the primary dashboard.
 
-1. Clone
-   git clone https://github.com/ashwanik0777/school-management.git
-   cd school-management
+![Demo GIF](docs/assets/demo.gif)
 
-2. Backend
+---
+
+## 3. Features
+- 👩‍🎓 Student Profiles: create, update, guardians, history
+- 👨‍🏫 Teacher & Staff Management: roles & schedules
+- 🧭 Class & Timetable Management: conflict detection
+- ✅ Attendance: daily/period-wise + exports
+- 📝 Exams & Gradebook: create exams, record results, transcripts
+- 📤 CSV Bulk Import/Export: fast onboarding
+- 🔔 Notifications: email + webhook support
+- 🔒 RBAC & Audit Logs: admin oversight
+- 🔁 Background Workers: imports, reports, email delivery
+
+---
+
+## 4. Visual Badges & Icons
+Use shields and emoji to make README inviting:
+- Build: [![Build](https://img.shields.io/badge/build-passing-brightgreen)](#)
+- Coverage: [![Coverage](https://img.shields.io/badge/coverage-90%25-yellowgreen)](#)
+- License: [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Tip: Add service badges (Docker Hub, GitHub Actions) when available.
+
+---
+
+## 5. Tech Stack
+(Replace these with the actual tools used in this repo)
+- Backend: Node.js + Express / Django / Laravel / Spring Boot
+- Frontend: React / Vue / Angular
+- Database: PostgreSQL / MySQL
+- Cache: Redis (optional)
+- Queue: Bull / Celery
+- Storage: AWS S3 / MinIO
+- Containerization: Docker & docker-compose
+- CI: GitHub Actions
+
+---
+
+## 6. Quick Start
+
+### Clone
+git clone https://github.com/ashwanik0777/school-management.git
+cd school-management
+
+### Local (example Node backend + React frontend)
+1. Backend
    cd server
-   # Node example
    npm install
    cp .env.example .env
-   # set DB and secrets in .env
+   # update .env
    npm run migrate
    npm run seed
    npm run dev
 
-   # Django example
-   pip install -r requirements.txt
-   cp .env.example .env
-   python manage.py migrate
-   python manage.py loaddata initial_data
-   python manage.py runserver
-
-3. Frontend
+2. Frontend
    cd client
    npm install
+   cp .env.example .env
    npm start
 
-4. Open http://localhost:3000 (or configured port)
+Open http://localhost:3000
 
 ---
 
-Configuration (important env vars)
-- DATABASE_URL or DB_HOST, DB_USER, DB_PASSWORD
-- JWT_SECRET or SESSION_SECRET
-- PORT
-- SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
-- STORAGE_ENDPOINT, STORAGE_BUCKET (for file uploads)
-- REDIS_URL (if used for caching/queues)
+## 7. Docker Quick Start
+From repository root:
+cp .env.example .env
+docker-compose up --build
 
-Add any other service keys in .env, and never commit secrets to the repo.
-
----
-
-Usage notes
-- First-time run: create admin account (seed or via registration)
-- Use CSV import to onboard many students/teachers quickly
-- Configure scheduled jobs for daily attendance summaries / weekly reports
-- Use role-specific dashboards: Admin, Teacher, Parent
+Default stack in docker-compose (example):
+- web (frontend)
+- api (backend)
+- db (postgres)
+- redis
+- worker
 
 ---
 
-Architecture & Diagrams
-Below are high-level diagrams to make the system easier for contributors to understand. These are provided in mermaid so they render on GitHub (if mermaid is enabled) or can be viewed via mermaid live editor.
+## 8. Configuration (.env example)
+Store secrets in .env (never commit them).
 
-System Architecture
+Example:
+APP_NAME="School Management"
+NODE_ENV=development
+PORT=4000
+
+DB_HOST=postgres
+DB_PORT=5432
+DB_USER=postgres
+DB_PASS=postgres
+DB_NAME=school_db
+
+JWT_SECRET=supersecretjwtkey
+JWT_EXPIRES_IN=7d
+
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=user@example.com
+SMTP_PASS=yourpassword
+
+S3_ENDPOINT=
+S3_BUCKET=
+S3_ACCESS_KEY=
+S3_SECRET_KEY=
+
+REDIS_URL=redis://redis:6379
+
+---
+
+## 9. Development Tips
+- Use nodemon / hot reload for backend development
+- Use ESLint/Prettier and run lint on save
+- Keep environment-specific settings in .env files
+- Create small focused PRs and include screenshots for UI changes
+
+---
+
+## 10. Database & Migrations
+Examples (adapt to ORM):
+
+Node (TypeORM/Sequelize):
+- npm run migrate
+- npm run seed
+
+Django:
+- python manage.py migrate
+- python manage.py loaddata initial_data
+
+Sample seeder (pseudo):
+```js
+// create-admin.js (pseudo)
+User.create({ username: 'admin', email: 'admin@example.com', password: 'changeme', role: 'admin' })
+```
+
+---
+
+## 11. Testing & CI
+- Unit tests: npm run test
+- Integration tests: npm run test:integration
+- E2E: Cypress / Playwright recommended
+
+Add GitHub Actions to run tests, lint and build on PR.
+
+---
+
+## 12. Deployment
+Options:
+- Docker images -> Kubernetes / ECS
+- Heroku / Render (small deployments)
+- Vercel/Netlify for frontend (API hosted separately)
+
+Production considerations:
+- Use secrets manager for env variables
+- Set up health checks & readiness probes
+- Configure backups for DB & object storage
+
+---
+
+## 13. Architecture & Diagrams
+
+### System Architecture
 ```mermaid
 flowchart LR
-  subgraph Users
+  subgraph Clients
     A[Admin]
     B[Teacher]
     C[Parent]
     D[Student]
   end
-  A -->|HTTP(S)| FE[Frontend SPA]
-  B -->|HTTP(S)| FE
-  C -->|HTTP(S)| FE
+  A -->|HTTPS| FE[Frontend SPA]
+  B -->|HTTPS| FE
+  C -->|HTTPS| FE
   FE -->|REST / GraphQL| API[Backend API]
-  API --> DB[(Postgres / MySQL)]
+  API --> DB[(Postgres)]
   API --> Auth[Auth Service / JWT]
-  API --> Storage[S3 / MinIO]
-  API --> Worker[Background Worker / Celery / Bull]
+  API --> Storage[S3]
+  API --> Worker[Background Worker]
   Worker --> DB
-  Worker --> Storage
-  Worker --> Email[SMTP / Email Provider]
-  Email -->|send| Users
+  Worker --> Email[SMTP]
 ```
 
-Database ER Diagram
+### Database ER Diagram
 ```mermaid
 erDiagram
   USERS {
@@ -159,6 +251,7 @@ erDiagram
     string last_name
     date dob
     string guardian_contact
+    string status
   }
   TEACHERS {
     int id PK
@@ -208,7 +301,7 @@ erDiagram
   STUDENTS ||--o{ RESULTS : "receives"
 ```
 
-Enrollment Flow (sequence)
+### Enrollment Sequence
 ```mermaid
 sequenceDiagram
   participant Admin
@@ -216,69 +309,96 @@ sequenceDiagram
   participant API
   participant DB
   Admin->>Frontend: Open New Enrollment form
-  Frontend->>API: POST /enrollments {student, classId}
-  API->>DB: Insert student (if new) & enrollment record
+  Frontend->>API: POST /api/enrollments {student, classId}
+  API->>DB: Insert student & enrollment
   DB-->>API: Enrollment saved
   API-->>Frontend: 201 Created + enrollment details
-  Frontend-->>Admin: Show success & options (print, email welcome)
+  Frontend-->>Admin: Show success message & next steps
 ```
 
-Design notes
-- Separate read/write models (CQRS) recommended for analytics-heavy features.
-- Keep heavy tasks (report generation, CSV imports) in background workers.
-- Consider a multi-tenant approach if you plan to support multiple schools.
+---
+
+## 14. Screenshots & Assets
+Add images to docs/assets or docs/images and reference them:
+- docs/assets/dashboard.png
+- docs/assets/student-profile.png
+- docs/assets/attendance.png
+- docs/assets/reports.png
+
+Tip: Keep 1200px width for hero images and use compressed PNG/JPEG or animated GIF for workflows.
 
 ---
 
-Screenshots / Demo
-Add screenshots to /docs/assets or /images and reference them here:
-
-- Dashboard (docs/assets/dashboard.png)
-- Student profile (docs/assets/student-profile.png)
-- Attendance sheet (docs/assets/attendance.png)
-- Reports (docs/assets/reports.png)
-
-Tip: Add a short demo GIF in the README to increase first-impression impact.
-
----
-
-Contributing
-We welcome contributions! Please follow this workflow:
+## 15. Contributing
+We welcome contributions! Please:
 1. Fork the repository
-2. Create a feature branch: git checkout -b feat/your-feature
-3. Commit with descriptive messages
-4. Push to your fork and open a Pull Request against main
-5. Run tests and include new tests for features/bug fixes
-6. Follow code style and linters configured in the project
+2. Create a branch: git checkout -b feat/your-feature
+3. Commit with meaningful messages
+4. Push to your fork and open a PR
+5. Include tests and screenshots where applicable
 
-Code of Conduct
-Please follow a friendly and respectful code of conduct. Add your preferred CoC file (e.g., CODE_OF_CONDUCT.md).
+Guidelines:
+- Keep PRs small and focused
+- Run linters and tests locally before submitting
+- Add changelog entries for user-facing changes
 
----
-
-Roadmap
-- [ ] Full gradebook analytics & visualizations
-- [ ] Parent mobile notifications (push)
-- [ ] Multi-school / multi-tenant support
-- [ ] SSO / OAuth integrations (Google, Microsoft)
-- [ ] Mobile-first responsive improvements and PWA support
+Please add a CODE_OF_CONDUCT.md and CONTRIBUTING.md files for governance.
 
 ---
 
-License
-This project is licensed under the MIT License — see the LICENSE file for details.
+## 16. Roadmap
+Planned improvements:
+- [ ] Advanced analytics & visual dashboards
+- [ ] Mobile app / PWA
+- [ ] Multi-tenancy (multi-school)
+- [ ] SSO (Google / Microsoft)
+- [ ] Offline-first features for teachers
 
 ---
 
-Maintainers & Contact
-Maintainer: ashwanik0777
+## 17. Troubleshooting & FAQ
+
+Q: I got a "422 Invalid request: 'sha' wasn't supplied" when updating README via API/automation.
+A: That error means the update operation attempted to replace an existing file but did not include the file's current content SHA (a required parameter when updating an existing file through the repository API). Fixes:
+- If you update via Git locally: clone the repo, modify README.md, git add README.md, git commit -m "Update README", git push.
+- If an API/automation is used: fetch the current file metadata first to obtain the file SHA, then include that SHA in the update request payload.
+- Alternatively, use the GitHub web UI to edit and commit the file directly (no SHA required).
+
+Q: Migrations failing?
+A: Check DB connection and credentials in .env. Ensure DB user has required privileges and run migrations manually to see detailed errors.
+
+Q: App 500s on auth?
+A: Verify JWT_SECRET and correct token config. Check logs for missing env vars.
+
+Add more FAQs as real issues arise.
+
+---
+
+## 18. License & Contact
+License: MIT — see LICENSE file.
+
+Maintainer: ashwanik0777  
 Repo: https://github.com/ashwanik0777/school-management
-For questions, open an issue or contact via GitHub profile.
 
 ---
 
-How to apply this updated README
-- If you want, copy this content into your repository's README.md and commit.
-- If you'd like, I can prepare a ready-to-commit patch or a pull request — tell me whether you'd like a PR and which branch to target, and provide any details you'd like included (actual tech stack, screenshots, demo GIFs, or specific environment variables).
+How to apply this README
+- Option A (manual): Copy this content into your repository's README.md locally and commit:
+  git checkout -b docs/readme-enhance
+  # replace README.md content
+  git add README.md
+  git commit -m "docs: enhance README (visuals, icons, diagrams)"
+  git push origin docs/readme-enhance
+  Open a Pull Request and merge.
 
-Thank you — I polished the README content, added clear mermaid diagrams for architecture and data model, and left placeholders and tips for images and stack-specific details. If you'd like a version tailored to the exact tech stack and real screenshots from your app, send those details and I will update the README accordingly.
+- Option B (web): Open README.md on GitHub, click Edit, paste the content, preview, and commit changes on a branch or directly to main.
+
+Notes about pushing from automation
+- If an automated push previously failed with a "sha" error, update your automation to GET the file contents first to retrieve the file's sha, then include it when sending the update (this is required when replacing an existing file via API).
+
+If you'd like, I can:
+- further tailor the README to your exact tech stack and steps (send me the stack),
+- add real screenshots (upload images) and I will update the README with embeds,
+- prepare a patch file or a branch/PR for you — tell me which branch to target and whether I should create a PR.
+
+Thank you — I corrected typos, expanded sections, added icons and badges, improved the mermaid diagrams, and included a troubleshooting note about the 422 sha error. If you want a more design-heavy README (custom SVG icons, hero banner, or embedded GIFs), upload the assets and I'll integrate them next.
