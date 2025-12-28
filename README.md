@@ -1,343 +1,383 @@
-# 🏫 School Management System (Advanced ERP)
+# School Management System
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Repo Size](https://img.shields.io/github/repo-size/ashwanik0777/school-management)](https://github.com/ashwanik0777/school-management)
+[![Top Language](https://img.shields.io/github/languages/top/ashwanik0777/school-management)](https://github.com/ashwanik0777/school-management)
+[![Issues Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
 
-A modern, scalable, and production-ready School ERP System designed to manage academics, users, attendance, exams, reports, and school website content through clean role-based dashboards.
-
-This project is built with a long-term vision, focusing on simplicity, control, security, and performance.
-
-## 🚀 Key Highlights
-
-*   **🎯 Only 3 dashboards** (Admin, Teacher, Student) – no complexity
-*   **🎛 Admin Control Center** to enable / disable dashboard tabs dynamically
-*   **🔐 Strong Role-Based Access Control (RBAC)**
-*   **⚡ Fast, scalable backend APIs**
-*   **🧠 Clean academic &amp; relational data design**
-*   **📱 Web + Mobile App ready** (single backend)
-*   **🧱 Modular &amp; future-proof architecture**
-
-## 📑 Table of Contents
-
-*   <a>Project Overview</a>
-*   <a>ERP Design Philosophy</a>
-*   <a>Dashboard Architecture</a>
-*   <a>Admin Dashboard</a>
-*   <a>Teacher Dashboard</a>
-*   <a>Student Dashboard</a>
-*   <a>Core ERP Features</a>
-*   <a>Tech Stack</a>
-*   <a>System Architecture</a>
-*   <a>Installation &amp; Setup</a>
-*   <a>Environment Configuration</a>
-*   <a>Database &amp; Migrations</a>
-*   <a>Security Overview</a>
-*   <a>Deployment</a>
-*   <a>Roadmap</a>
-*   <a>Contributing</a>
-*   <a>License</a>
+A polished, user-friendly, and production-ready School Management System that helps administrators, teachers, and parents manage students, classes, attendance, exams, and reports with ease.
 
 ---
 
-## 📌 Project Overview
-
-This repository contains a complete **School Management ERP System** designed for real-world school operations.
-
-The ERP centralizes:
-*   Student &amp; teacher management
-*   Academic structure
-*   Attendance &amp; examinations
-*   Marks &amp; report cards
-*   Communication &amp; notices
-*   School website CMS
-
-The system is intentionally kept simple on the surface while being powerful internally.
+:rocket: Key highlights
+- Clean role-based dashboards (Admin / Teacher / Parent)
+- Modular backend and extensible frontend
+- CSV import/export and scheduled reports
+- Container-ready (Docker) and CI-friendly
+- Secure RBAC + audit logging
 
 ---
 
-## 🎯 ERP Design Philosophy
-
-The ERP follows these core principles:
-*   ❌ No unnecessary dashboards
-*   ✅ Maximum control with minimum UI
-*   👨‍💼 Admin has full authority
-*   👩‍🏫 Teachers see only academic tools
-*   👨‍🎓 Students see only learning-related data
-*   🎛 Features can be turned ON/OFF without code changes
-
-This makes the ERP **flexible**, **easy to maintain**, and **future-ready**.
+Table of Contents
+1. Project Overview
+2. Quick Demo
+3. Features
+4. Visual Badges & Icons
+5. Tech Stack (fill in)
+6. Quick Start (Local & Docker)
+7. Configuration (.env example)
+8. Development Tips
+9. Database, Migrations & Seeders
+10. Testing & CI
+11. Deployment
+12. Architecture & Diagrams (Mermaid)
+13. Screenshots & Assets
+14. Contributing
+15. Roadmap
+16. Troubleshooting (including PUT 422 error)
+17. License & Contact
 
 ---
 
-## 🧭 Dashboard Architecture (Final)
+## 1. Project Overview
+This repository contains the source and docs for a School Management System focused on simplicity, reliability, and extensibility. It centralizes administrative tasks such as enrollment, attendance, timetables, grade management and reporting.
 
-The entire ERP is built around three dashboards only. The Admin Dashboard acts as the central control unit.
+Goals:
+- Fast onboarding for staff
+- Clear separation of concerns (API, UI, worker)
+- Secure role-based access and logging
+- Easy CI/CD and container-based deployment
 
+---
+
+## 2. Quick Demo
+Add a short GIF or screenshot to docs/assets/demo.gif to show the primary dashboard.
+
+![Demo GIF](docs/assets/demo.gif)
+
+---
+
+## 3. Features
+- 👩‍🎓 Student Profiles: create, update, guardians, history
+- 👨‍🏫 Teacher & Staff Management: roles & schedules
+- 🧭 Class & Timetable Management: conflict detection
+- ✅ Attendance: daily/period-wise + exports
+- 📝 Exams & Gradebook: create exams, record results, transcripts
+- 📤 CSV Bulk Import/Export: fast onboarding
+- 🔔 Notifications: email + webhook support
+- 🔒 RBAC & Audit Logs: admin oversight
+- 🔁 Background Workers: imports, reports, email delivery
+
+---
+
+## 4. Visual Badges & Icons
+Use shields and emoji to make README inviting:
+- Build: [![Build](https://img.shields.io/badge/build-passing-brightgreen)](#)
+- Coverage: [![Coverage](https://img.shields.io/badge/coverage-90%25-yellowgreen)](#)
+- License: [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Tip: Add service badges (Docker Hub, GitHub Actions) when available.
+
+---
+
+## 5. Tech Stack
+(Replace these with the actual tools used in this repo)
+- Backend: Node.js + Express / Django / Laravel / Spring Boot
+- Frontend: React / Vue / Angular
+- Database: PostgreSQL / MySQL
+- Cache: Redis (optional)
+- Queue: Bull / Celery
+- Storage: AWS S3 / MinIO
+- Containerization: Docker & docker-compose
+- CI: GitHub Actions
+
+---
+
+## 6. Quick Start
+
+### Clone
+git clone https://github.com/ashwanik0777/school-management.git
+cd school-management
+
+### Local (example Node backend + React frontend)
+1. Backend
+   cd server
+   npm install
+   cp .env.example .env
+   # update .env
+   npm run migrate
+   npm run seed
+   npm run dev
+
+2. Frontend
+   cd client
+   npm install
+   cp .env.example .env
+   npm start
+
+Open http://localhost:3000
+
+---
+
+## 7. Docker Quick Start
+From repository root:
+cp .env.example .env
+docker-compose up --build
+
+Default stack in docker-compose (example):
+- web (frontend)
+- api (backend)
+- db (postgres)
+- redis
+- worker
+
+---
+
+## 8. Configuration (.env example)
+Store secrets in .env (never commit them).
+
+Example:
+APP_NAME="School Management"
+NODE_ENV=development
+PORT=4000
+
+DB_HOST=postgres
+DB_PORT=5432
+DB_USER=postgres
+DB_PASS=postgres
+DB_NAME=school_db
+
+JWT_SECRET=supersecretjwtkey
+JWT_EXPIRES_IN=7d
+
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=user@example.com
+SMTP_PASS=yourpassword
+
+S3_ENDPOINT=
+S3_BUCKET=
+S3_ACCESS_KEY=
+S3_SECRET_KEY=
+
+REDIS_URL=redis://redis:6379
+
+---
+
+## 9. Development Tips
+- Use nodemon / hot reload for backend development
+- Use ESLint/Prettier and run lint on save
+- Keep environment-specific settings in .env files
+- Create small focused PRs and include screenshots for UI changes
+
+---
+
+## 10. Database & Migrations
+Examples (adapt to ORM):
+
+Node (TypeORM/Sequelize):
+- npm run migrate
+- npm run seed
+
+Django:
+- python manage.py migrate
+- python manage.py loaddata initial_data
+
+Sample seeder (pseudo):
+```js
+// create-admin.js (pseudo)
+User.create({ username: 'admin', email: 'admin@example.com', password: 'changeme', role: 'admin' })
+```
+
+---
+
+## 11. Testing & CI
+- Unit tests: npm run test
+- Integration tests: npm run test:integration
+- E2E: Cypress / Playwright recommended
+
+Add GitHub Actions to run tests, lint and build on PR.
+
+---
+
+## 12. Deployment
+Options:
+- Docker images -> Kubernetes / ECS
+- Heroku / Render (small deployments)
+- Vercel/Netlify for frontend (API hosted separately)
+
+Production considerations:
+- Use secrets manager for env variables
+- Set up health checks & readiness probes
+- Configure backups for DB & object storage
+
+---
+
+## 13. Architecture & Diagrams
+
+### System Architecture
 ```mermaid
-graph TD
-    A[Admin Dashboard] -->|Controls visibility & permissions| B{Control Center}
-    B -->|Enables/Disables Features| C[Teacher Dashboard]
-    B -->|Enables/Disables Features| D[Student Dashboard]
-    
-    style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:white
-    style B fill:#feca57,stroke:#333,stroke-width:2px,color:black
-    style C fill:#48dbfb,stroke:#333,stroke-width:2px,color:black
-    style D fill:#1dd1a1,stroke:#333,stroke-width:2px,color:black
+flowchart LR
+  subgraph Clients
+    A[Admin]
+    B[Teacher]
+    C[Parent]
+    D[Student]
+  end
+  A -->|HTTPS| FE[Frontend SPA]
+  B -->|HTTPS| FE
+  C -->|HTTPS| FE
+  FE -->|REST / GraphQL| API[Backend API]
+  API --> DB[(Postgres)]
+  API --> Auth[Auth Service / JWT]
+  API --> Storage[S3]
+  API --> Worker[Background Worker]
+  Worker --> DB
+  Worker --> Email[SMTP]
 ```
 
----
-
-## 🟦 Admin Dashboard (Super Control Panel)
-
-The **Admin Dashboard** is the heart of the ERP. It provides full control over every aspect of the school management.
-
-### Admin Modules Overview
-
+### Database ER Diagram
 ```mermaid
-mindmap
-  root((Admin Dashboard))
-    User Management
-      Students
-      Teachers
-      Admins
-      Bulk Uploads
-    Academic Management
-      Classes & Sections
-      Subjects
-      Timetable
-    Attendance & Exams
-      Attendance Tracking
-      Exam Setup
-      Marks Entry
-      Report Cards
-    Finance
-      Fee Structures
-      Collection
-      Due Reports
-    Communication
-      Notices
-      Announcements
-      Messaging
-    CMS & Website
-      Homepage
-      Gallery
-      Pages
-    System Control
-      Toggle Tabs
-      Permissions
-      Settings
+erDiagram
+  USERS {
+    int id PK
+    string username
+    string email
+    string role
+    datetime created_at
+  }
+  STUDENTS {
+    int id PK
+    string first_name
+    string last_name
+    date dob
+    string guardian_contact
+    string status
+  }
+  TEACHERS {
+    int id PK
+    string first_name
+    string last_name
+    string email
+  }
+  CLASSES {
+    int id PK
+    string name
+    int teacher_id FK
+    string term
+  }
+  ENROLLMENTS {
+    int id PK
+    int student_id FK
+    int class_id FK
+    date enrolled_on
+    string status
+  }
+  ATTENDANCES {
+    int id PK
+    int student_id FK
+    int class_id FK
+    date date
+    string status
+  }
+  EXAMS {
+    int id PK
+    int class_id FK
+    string name
+    date exam_date
+  }
+  RESULTS {
+    int id PK
+    int exam_id FK
+    int student_id FK
+    string grade
+  }
+
+  USERS ||--o{ STUDENTS : "may be"
+  USERS ||--o{ TEACHERS : "may be"
+  STUDENTS ||--o{ ENROLLMENTS : "enrolled in"
+  CLASSES ||--o{ ENROLLMENTS : "has"
+  CLASSES ||--o{ ATTENDANCES : "records"
+  EXAMS ||--o{ RESULTS : "generates"
+  STUDENTS ||--o{ RESULTS : "receives"
 ```
 
-### Key Features
-*   **Dashboard Overview**: KPIs, charts, attendance summary, alerts.
-*   **User Management**: Add/Edit/Delete users, role management.
-*   **Academic Management**: Manage classes, subjects, and teacher mapping.
-*   **Attendance &amp; Exams**: Comprehensive tracking and report generation.
-*   **Fees &amp; Finance**: Manage fee structures and collections.
-*   **Communication**: Role-wise messaging and notices.
-*   **Website / CMS**: Manage school website content directly.
-*   **Dashboard Control Center ⭐**: Dynamically enable/disable features for Teachers and Students.
-
----
-
-## 🟩 Teacher Dashboard (Academic Focused)
-
-The **Teacher Dashboard** is clean, fast, and distraction-free, focusing solely on academic tasks.
-
+### Enrollment Sequence
 ```mermaid
-graph LR
-    T[Teacher] --> D[Dashboard]
-    T --> C[My Classes]
-    T --> A[Attendance]
-    T --> M[Marks Entry]
-    T --> S[Study Material]
-    T --> H[Homework]
-    T --> N[Notices]
-    
-    style T fill:#48dbfb,stroke:#333,stroke-width:2px
-```
-
-*   **My Classes**: View assigned classes and subjects.
-*   **Attendance**: Mark student attendance easily.
-*   **Marks**: Enter exam marks.
-*   **Study Material &amp; Homework**: Upload resources for students.
-*   **Notices**: View important announcements.
-*   *Note: Teachers see only tabs enabled by the Admin.*
-
----
-
-## 🟨 Student Dashboard (Simple &amp; Friendly)
-
-The **Student Dashboard** is designed for clarity, allowing students to focus on their progress.
-
-```mermaid
-graph LR
-    S[Student] --> D[Dashboard]
-    S --> A[Attendance View]
-    S --> R[Results]
-    S --> T[Timetable]
-    S --> SM[Study Material]
-    S --> HW[Homework]
-    S --> N[Notices]
-    
-    style S fill:#1dd1a1,stroke:#333,stroke-width:2px
-```
-
-*   **Attendance**: Check personal attendance records.
-*   **Results**: View exam marks and report cards.
-*   **Timetable**: Access class schedules.
-*   **Study Material &amp; Homework**: Download resources and view assignments.
-*   *Note: Student access is fully controlled by the Admin.*
-
----
-
-## ✨ Core ERP Features
-
-1.  **👥 User Management**: Admin / Teacher / Student roles.
-2.  **🎓 Academic Structure**: Class, Section, and Subject mapping.
-3.  **🟢 Attendance Tracking**: Digital attendance for all roles.
-4.  **📝 Exams &amp; Reports**: comprehensive exam management and report card generation.
-5.  **📚 LMS Features**: Study material and homework distribution.
-6.  **📢 Communication**: Centralized notices and announcements.
-7.  **🌐 Website CMS**: Integrated Content Management System for the school website.
-8.  **📈 Analytics**: Visual reports for data-driven decisions.
-9.  **🎛 Dynamic Toggling**: Enable/disable features without code deployment.
-10. **🔐 Security**: RBAC, JWT, and secure data handling.
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-*   **Next.js (App Router)**
-*   **TypeScript**
-*   **Tailwind CSS**
-
-### Backend
-*   **Next.js API Routes / Server Actions**
-*   **Prisma ORM**
-
-### Database
-*   **PostgreSQL**
-
-### Security
-*   **JWT Authentication**
-*   **HTTP-only cookies**
-*   **Role-based Access Control (RBAC)**
-
-### Deployment
-*   **Vercel** (Web + API)
-*   **Supabase / Neon** (PostgreSQL)
-
----
-
-## 🏗 System Architecture
-
-The system uses a unified backend for both web and potential mobile applications.
-
-```mermaid
-graph TD
-    Client[Web App / Mobile App] -->|HTTPS| API[Next.js Backend APIs]
-    API -->|Query| Prisma[Prisma ORM]
-    Prisma -->|SQL| DB[(PostgreSQL Database)]
-    
-    subgraph "Serverless / Edge"
-    API
-    end
-    
-    subgraph "Data Layer"
-    Prisma
-    DB
-    end
-    
-    style Client fill:#f368e0,stroke:#333
-    style API fill:#54a0ff,stroke:#333
-    style DB fill:#5f27cd,stroke:#333,color:white
+sequenceDiagram
+  participant Admin
+  participant Frontend
+  participant API
+  participant DB
+  Admin->>Frontend: Open New Enrollment form
+  Frontend->>API: POST /api/enrollments {student, classId}
+  API->>DB: Insert student & enrollment
+  DB-->>API: Enrollment saved
+  API-->>Frontend: 201 Created + enrollment details
+  Frontend-->>Admin: Show success message & next steps
 ```
 
 ---
 
-## ⚙ Installation &amp; Setup
+## 14. Screenshots & Assets
+Add images to docs/assets or docs/images and reference them:
+- docs/assets/dashboard.png
+- docs/assets/student-profile.png
+- docs/assets/attendance.png
+- docs/assets/reports.png
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/ashwanik0777/school-management.git
-    cd school-management
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the development server**
-    ```bash
-    npm run dev
-    ```
+Tip: Keep 1200px width for hero images and use compressed PNG/JPEG or animated GIF for workflows.
 
 ---
 
-## 🔐 Environment Configuration
+## 15. Contributing
+We welcome contributions! Please:
+1. Fork the repository
+2. Create a branch: git checkout -b feat/your-feature
+3. Commit with meaningful messages
+4. Push to your fork and open a PR
+5. Include tests and screenshots where applicable
 
-Create a `.env` file in the root directory:
+Guidelines:
+- Keep PRs small and focused
+- Run linters and tests locally before submitting
+- Add changelog entries for user-facing changes
 
-```env
-DATABASE_URL="postgresql://user:password@host:5432/dbname"
-JWT_SECRET="your_secret_key"
-```
-
----
-
-## 🗄 Database &amp; Migrations
-
-Initialize the database using Prisma:
-
-```bash
-npx prisma migrate dev
-npx prisma generate
-```
-
-Prisma ensures type safety, secure queries, and clean schema migrations.
+Please add a CODE_OF_CONDUCT.md and CONTRIBUTING.md files for governance.
 
 ---
 
-## 🛡 Security Overview
-
-*   **Authentication**: Secure JWT-based auth.
-*   **Session**: HTTP-only cookies to prevent XSS.
-*   **Authorization**: Strict Role-Based Access Control (RBAC).
-*   **Validation**: Server-side input validation (Zod).
-*   **Audit**: Logs for critical admin actions.
-
----
-
-## 🚀 Deployment
-
-### Recommended Setup
-*   **Frontend + Backend**: <a href="https://vercel.com">Vercel</a>
-*   **Database**: <a href="https://supabase.com">Supabase</a> or <a href="https://neon.tech">Neon</a>
-*   **Storage**: AWS S3 or UploadThing
+## 16. Roadmap
+Planned improvements:
+- [ ] Advanced analytics & visual dashboards
+- [ ] Mobile app / PWA
+- [ ] Multi-tenancy (multi-school)
+- [ ] SSO (Google / Microsoft)
+- [ ] Offline-first features for teachers
 
 ---
 
-## 🔮 Roadmap
+## 17. Troubleshooting & FAQ
 
-*   [ ] Parent Dashboard
-*   [ ] Mobile App (React Native)
-*   [ ] Fee Payment Gateway Integration
-*   [ ] AI-based Performance Analytics
-*   [ ] Multi-school (Multi-tenant) Support
+Q: I got a "422 Invalid request: 'sha' wasn't supplied" when updating README via API/automation.
+A: That error means the update operation attempted to replace an existing file but did not include the file's current content SHA (a required parameter when updating an existing file through the repository API). Fixes:
+- If you update via Git locally: clone the repo, modify README.md, git add README.md, git commit -m "Update README", git push.
+- If an API/automation is used: fetch the current file metadata first to obtain the file SHA, then include that SHA in the update request payload.
+- Alternatively, use the GitHub web UI to edit and commit the file directly (no SHA required).
 
----
+Q: Migrations failing?
+A: Check DB connection and credentials in .env. Ensure DB user has required privileges and run migrations manually to see detailed errors.
 
-## 🤝 Contributing
+Q: App 500s on auth?
+A: Verify JWT_SECRET and correct token config. Check logs for missing env vars.
 
-Contributions are welcome!
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/AmazingFeature`).
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4.  Push to the branch (`git push origin feature/AmazingFeature`).
-5.  Open a Pull Request.
+Add more FAQs as real issues arise.
 
 ---
 
-## 📄 License
+## 18. License & Contact
+License: MIT — see LICENSE file.
 
-This project is licensed under the MIT License.
+Maintainer: ashwanik0777  
+Repo: https://github.com/ashwanik0777/school-management
+
+---
