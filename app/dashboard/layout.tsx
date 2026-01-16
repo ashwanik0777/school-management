@@ -83,14 +83,26 @@ export default function DashboardLayout({
         </div>
 
         {/* Bottom Actions */}
-        <div className="p-4 space-y-2 mt-auto">
-           <Link 
-             href="/auth/login"
-             className="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-text-secondary hover:text-error hover:bg-error/10 rounded-2xl transition-colors w-full"
-            >
-               <LogOut className="w-5 h-5" />
-               Log out
-           </Link>
+        <div className="p-4 mt-auto">
+            <div className="flex items-center justify-between p-3 bg-secondary/20 dark:bg-black/20 border border-border/50 rounded-2xl">
+                <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="w-10 h-10 rounded-full border-2 border-primary/20 p-0.5 shrink-0">
+                         <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" className="w-full h-full rounded-full bg-background" />
+                    </div>
+                    <div className="flex flex-col min-w-0">
+                        <span className="text-sm font-bold text-text-primary truncate">Ashwani K.</span>
+                        <span className="text-[10px] uppercase font-semibold text-text-secondary/80 truncate">Admin</span>
+                    </div>
+                </div>
+                
+                <Link 
+                  href="/auth/login"
+                  className="p-2 text-text-secondary hover:text-error hover:bg-error/10 rounded-xl transition-all shrink-0"
+                  title="Log out"
+                >
+                    <LogOut className="w-5 h-5" />
+                </Link>
+            </div>
         </div>
       </aside>
 
