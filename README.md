@@ -296,7 +296,7 @@ Production considerations:
 
 ### System Architecture
 ```mermaid
-flowchart LR
+graph LR
   subgraph Clients
     A[Admin]
     B[Teacher]
@@ -306,9 +306,9 @@ flowchart LR
   A -->|HTTPS| FE[Frontend SPA]
   B -->|HTTPS| FE
   C -->|HTTPS| FE
-  FE -->|REST / GraphQL| API[Backend API]
+  FE -->|REST API| API[Backend API]
   API --> DB[(Postgres)]
-  API --> Auth[Auth Service / JWT]
+  API --> Auth[Auth Service]
   API --> Storage[S3]
   API --> Worker[Background Worker]
   Worker --> DB
@@ -372,13 +372,13 @@ erDiagram
     string grade
   }
 
-  USERS ||--o{ STUDENTS : "may be"
-  USERS ||--o{ TEACHERS : "may be"
-  STUDENTS ||--o{ ENROLLMENTS : "enrolled in"
-  CLASSES ||--o{ ENROLLMENTS : "has"
-  CLASSES ||--o{ ATTENDANCES : "records"
-  EXAMS ||--o{ RESULTS : "generates"
-  STUDENTS ||--o{ RESULTS : "receives"
+  USERS ||--o{ STUDENTS : manages
+  USERS ||--o{ TEACHERS : manages
+  STUDENTS ||--o{ ENROLLMENTS : has
+  CLASSES ||--o{ ENROLLMENTS : includes
+  CLASSES ||--o{ ATTENDANCES : records
+  EXAMS ||--o{ RESULTS : generates
+  STUDENTS ||--o{ RESULTS : receives
 ```
 
 ### Enrollment Sequence
@@ -389,11 +389,11 @@ sequenceDiagram
   participant API
   participant DB
   Admin->>Frontend: Open New Enrollment form
-  Frontend->>API: POST /api/enrollments {student, classId}
-  API->>DB: Insert student & enrollment
+  Frontend->>API: POST /api/enrollments
+  API->>DB: Insert student data
   DB-->>API: Enrollment saved
-  API-->>Frontend: 201 Created + enrollment details
-  Frontend-->>Admin: Show success message & next steps
+  API-->>Frontend: 201 Created
+  Frontend-->>Admin: Show success message
 ```
 
 ---
