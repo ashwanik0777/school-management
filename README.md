@@ -56,16 +56,96 @@ Add a short GIF or screenshot to docs/assets/demo.gif to show the primary dashbo
 
 ---
 
-## 3. Features
-- 👩‍🎓 Student Profiles: create, update, guardians, history
-- 👨‍🏫 Teacher & Staff Management: roles & schedules
-- 🧭 Class & Timetable Management: conflict detection
-- ✅ Attendance: daily/period-wise + exports
-- 📝 Exams & Gradebook: create exams, record results, transcripts
-- 📤 CSV Bulk Import/Export: fast onboarding
-- 🔔 Notifications: email + webhook support
-- 🔒 RBAC & Audit Logs: admin oversight
-- 🔁 Background Workers: imports, reports, email delivery
+## 3. Module Structure
+
+This ERP is designed to manage 100% of a school's academic, administrative, and digital presence, ensuring scalability for future needs without major restructuring.
+
+### 🔢 Total Core Modules: 12 + 1 Dedicated Website Module = 13 Modules
+
+| No. | Module Name | Description |
+| :--- | :--- | :--- |
+| 1️⃣ | **Authentication & Access Control** | Secure login & Role-Based Access Control (RBAC) |
+| 2️⃣ | **User Management** | Manage lifecycle of Students, Teachers, and Admins |
+| 3️⃣ | **Academic Management** | Define Classes, Sections, Subjects, and Years |
+| 4️⃣ | **Attendance Management** | Daily digital attendance for Students & Staff |
+| 5️⃣ | **Examination & Marks** | Exams, Gradebooks, and Report Cards |
+| 6️⃣ | **Timetable Management** | Scheduling for Classes and Teachers |
+| 7️⃣ | **Study Material & Homework** | Digital learning resources and assignments |
+| 8️⃣ | **Fees & Finance** | Fee structure, Collection, and Receipts |
+| 9️⃣ | **Communication & Notices** | Announcements and Messaging system |
+| 🔟 | **Reports & Analytics** | Insightful data for decision-making |
+| 1️⃣1️⃣ | **System Settings** | Configuration, Backup, and Security settings |
+| 1️⃣2️⃣ | **Dashboard Control Center** | Customize dashboard visibility and features |
+| 1️⃣3️⃣ | **School Website (CMS)** | Manage the public-facing school website |
+
+---
+
+### 📦 Module Details
+
+#### 1️⃣ 🔐 Authentication & Access Control Module
+**🎯 Purpose:** Provide secure login and role-based access mechanisms.
+- **Covers:** Login/Logout, JWT Authentication, Role-based access (Admin/Teacher/Student), Session handling, Password reset.
+- **📌 Significance:** The gatekeeper of the entire ERP system.
+
+#### 2️⃣ 👥 User Management Module
+**🎯 Purpose:** Manage the entire lifecycle of system users.
+- **Covers:** Student/Teacher/Admin management, Profile activation/deactivation, Bulk upload (Excel), Password reset.
+- **📌 Significance:** The backbone of the Admin Dashboard.
+
+#### 3️⃣ 🎓 Academic Management Module
+**🎯 Purpose:** Define and structure the school's academic framework.
+- **Covers:** Classes, Sections, Subjects, Academic Year, Teacher-Subject assignment, Student promotion.
+- **📌 Significance:** Without this, the ERP has no academic context.
+
+#### 4️⃣ 🟢 Attendance Management Module
+**🎯 Purpose:** Maintain a digital record of daily attendance.
+- **Covers:** Student & Teacher attendance, Class-wise tracking, Monthly reports, Attendance locking, Leave status.
+- **📌 Significance:** Highly sensitive & critical for daily operations.
+
+#### 5️⃣ 📝 Examination & Marks Module
+**🎯 Purpose:** Track and evaluate student performance.
+- **Covers:** Exam types (Unit, Mid, Final), Subject-wise marks, Grade calculation, Report card generation (PDF), Marks locking.
+- **📌 Significance:** The most critical module for Parents & Students.
+
+#### 6️⃣ 📅 Timetable Management Module
+**🎯 Purpose:** Schedule classes and resource allocation.
+- **Covers:** Class & Teacher timetables, Period-wise scheduling, Conflict prevention, Printable formats.
+- **📌 Significance:** The core of academic discipline and organization.
+
+#### 7️⃣ 📚 Study Material & Homework Module
+**🎯 Purpose:** Enable and support digital learning.
+- **Covers:** Study material uploads (PDF, Notes), Homework creation, Deadlines, Submission status.
+- **📌 Significance:** The main digital bridge for Teacher-Student interaction.
+
+#### 8️⃣ 💰 Fees & Finance Module
+**🎯 Purpose:** Track revenue and manage financial records.
+- **Covers:** Fee structure, Collection, Dues, Discounts/Scholarships, Receipts (PDF), Payment history.
+- **📌 Significance:** Essential for the financial health of the institution.
+
+#### 9️⃣ 📢 Communication & Notices Module
+**🎯 Purpose:** Streamline school-wide communication.
+- **Covers:** Notices, Announcements, Role-wise messaging, Emergency alerts.
+- **📌 Significance:** Digital replacement for traditional paper notices.
+
+#### 🔟 📈 Reports & Analytics Module
+**🎯 Purpose:** Data-driven monitoring and decision-making.
+- **Covers:** Attendance, Academic, and Fee reports, Custom filters, Export to PDF/Excel.
+- **📌 Significance:** The most powerful tool for School Management.
+
+#### 1️⃣1️⃣ ⚙ System Settings & Configuration Module
+**🎯 Purpose:** Centralized configuration for the ERP.
+- **Covers:** School profile, Roles & Permissions, Academic year settings, Backup & Audit logs.
+- **📌 Significance:** Ensures system stability and adaptability.
+
+#### 1️⃣2️⃣ 🎛 Dashboard Control Center Module (Unique Feature)
+**🎯 Purpose:** Provide flexibility to customize the ERP interface.
+- **Covers:** Toggle Student/Teacher dashboard tabs, Feature locking (e.g., during holidays/exams), Role-wise visibility.
+- **📌 Significance:** A unique selling point that adapts the ERP to the specific school's needs.
+
+#### 1️⃣3️⃣ 🌐 School Website Module (CMS)
+**🎯 Purpose:** Manage the school's public digital identity.
+- **Covers:** Homepage content, About Us, Gallery, Notices, Contact info, SEO fields.
+- **📌 Significance:** Completes the ecosystem by integrating the public website with the internal ERP.
 
 ---
 
