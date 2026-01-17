@@ -60,22 +60,12 @@ export default function HomePage() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 text-white">
                         <p className="font-bold text-lg">🎓 Class of 2025</p>
-                        <p className="text-sm opacity-90">Celebrating 100% Graduation Rate</p>
+                        <p className="text-sm opacity-90">Celebrating 100% Passing Rate</p>
                     </div>
                  </div>
                  
                  {/* Floating Badge */}
-                 <div className="absolute -bottom-6 -left-6 bg-card p-4 rounded-2xl shadow-xl border border-border animate-bounce-slow hidden md:block">
-                     <div className="flex items-center gap-3">
-                         <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-full">
-                             <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-400" />
-                         </div>
-                         <div>
-                             <p className="font-black text-foreground">Top Rated</p>
-                             <p className="text-xs text-muted-foreground">#1 School in District</p>
-                         </div>
-                     </div>
-                 </div>
+                 
             </div>
           </div>
         </div>

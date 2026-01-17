@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Eye, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -24,6 +24,14 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
+            
+            {/* Unique Visitor Counter */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary/5 rounded-full border border-border mt-4">
+                <Eye className="w-3 h-3 text-primary" />
+                <span className="text-xs font-medium text-text-secondary">
+                    Unique Visitors: <span className="font-bold text-primary tabular-nums">1,245,678</span>
+                </span>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -34,6 +42,7 @@ export default function Footer() {
               <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Admission Policy</Link></li>
               <li><Link href="/coming-soon" className="hover:text-primary transition-colors">School Gallery</Link></li>
               <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Digital Library</Link></li>
             </ul>
           </div>
 
@@ -56,11 +65,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter (Optional) */}
+          {/* Newsletter */}
            <div>
             <h4 className="font-semibold text-text-primary mb-4">Stay Updated</h4>
             <p className="text-xs text-text-secondary mb-3">Subscribe to our newsletter for latest updates.</p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-6">
               <input 
                 type="email" 
                 placeholder="Email address" 
@@ -73,10 +82,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 text-center">
-          <p className="text-xs text-text-secondary">
-            © {new Date().getFullYear()} EduBalance School Management System. All rights reserved.
-          </p>
+        {/* Bottom Footer */}
+        <div className="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-center md:text-left">
+              <p className="text-xs text-text-secondary mb-2 md:mb-0">
+                © {new Date().getFullYear()} EduBalance School Management System. All rights reserved.
+              </p>
+              <div className="flex gap-4 text-xs text-text-secondary/80 justify-center md:justify-start mt-2">
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Privacy Policy</Link>
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Terms of Use</Link>
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Cookie Policy</Link>
+              </div>
+          </div>
+
+          <div className="flex items-center gap-1.5 text-xs text-text-secondary font-medium bg-secondary/5 px-4 py-2 rounded-full border border-border/50">
+             <span>Designed & Developed with</span>
+             <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse" />
+             <span>by</span>
+             <a href="#" className="text-primary hover:underline font-bold">Ashwani Kushwaha</a>
+          </div>
         </div>
       </div>
     </footer>
