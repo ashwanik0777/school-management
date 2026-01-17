@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Eye, Heart } from 'lucide-react';
 import Link from 'next/link';
+import VisitorCounter from './VisitorCounter';
 
 export default function Footer() {
   return (
@@ -23,14 +24,6 @@ export default function Footer() {
               <a href="#" className="p-2 bg-secondary/10 rounded-full text-secondary hover:bg-primary hover:text-white transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-            </div>
-            
-            {/* Unique Visitor Counter */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary/5 rounded-full border border-border mt-4">
-                <Eye className="w-3 h-3 text-primary" />
-                <span className="text-xs font-medium text-text-secondary">
-                    Unique Visitors: <span className="font-bold text-primary tabular-nums">1,245,678</span>
-                </span>
             </div>
           </div>
 
@@ -79,27 +72,47 @@ export default function Footer() {
                 Join
               </button>
             </div>
+            
+            <VisitorCounter />
           </div>
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left">
-              <p className="text-xs text-text-secondary mb-2 md:mb-0">
-                © {new Date().getFullYear()} EduBalance School Management System. All rights reserved.
+        <div className="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          
+          {/* Left: Copyright */}
+          <div className="text-center md:text-left flex-1">
+              <p className="text-xs text-text-secondary">
+                © {new Date().getFullYear()} EduBalance School Management.
               </p>
-              <div className="flex gap-4 text-xs text-text-secondary/80 justify-center md:justify-start mt-2">
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Privacy Policy</Link>
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Terms of Use</Link>
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors underline-offset-4 hover:underline">Cookie Policy</Link>
-              </div>
+              <p className="text-[10px] text-text-secondary/60 mt-0.5">
+                Licensed for educational use only.
+              </p>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-text-secondary font-medium bg-secondary/5 px-4 py-2 rounded-full border border-border/50">
-             <span>Designed & Developed with</span>
-             <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse" />
-             <span>by</span>
-             <a href="#" className="text-primary hover:underline font-bold">Ashwani Kushwaha</a>
+          {/* Center: Developer Team Badge */}
+          <div className="flex-1 flex justify-center">
+              <Link 
+                href="/team" 
+                className="group flex items-center gap-2 px-5 py-2.5 bg-background shadow-sm hover:shadow-md border border-border rounded-full transition-all duration-300 transform hover:-translate-y-0.5"
+                title="Meet the Team behind EduBalance"
+              >
+                 <span className="text-xs font-medium text-text-secondary">Made completely with <Heart className="w-3 h-3 text-red-500 inline mx-0.5 animate-pulse" /> by</span>
+                 <span className="text-xs font-black tracking-wide bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
+                     ASHWANI'S INNOVATIONS
+                 </span>
+              </Link>
+          </div>
+
+          {/* Right: Legal & Visitors */}
+          <div className="flex-1 flex flex-col items-center md:items-end gap-2">
+              <div className="flex gap-4 text-xs font-medium text-text-secondary">
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                  <span className="text-border">|</span>
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Terms of Use</Link>
+                  <span className="text-border">|</span>
+                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Sitemap</Link>
+              </div>
           </div>
         </div>
       </div>
