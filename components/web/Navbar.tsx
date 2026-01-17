@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, LogIn, ChevronRight, Home, Info, GraduationCap, Phone } from 'lucide-react';
+import { Menu, X, LogIn, ChevronRight, Home, Info, GraduationCap, Phone, Users, BookOpen } from 'lucide-react';
 import { ThemeToggle } from '../ThemeToggle';
 
 export default function Navbar() {
@@ -10,9 +10,11 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/', icon: Home },
-    { name: 'About Us', href: '/coming-soon', icon: Info },
-    { name: 'Admissions', href: '/coming-soon', icon: GraduationCap },
-    { name: 'Contact', href: '/coming-soon', icon: Phone },
+    { name: 'About Us', href: '/about', icon: Info },
+    { name: 'Admissions', href: '/admissions', icon: GraduationCap },
+    { name: 'Academics', href: '/academics', icon: BookOpen },
+    { name: 'Faculty', href: '/faculty', icon: Users },
+    { name: 'Contact', href: '/contact', icon: Phone },
   ];
 
   return (
@@ -81,11 +83,11 @@ export default function Navbar() {
 
       {/* Mobile Sidebar */}
       <div className={`
-        fixed inset-y-0 right-0 z-[60] w-[280px] bg-background border-l border-border shadow-2xl transform transition-transform duration-300 ease-out md:hidden flex flex-col
+        fixed inset-y-0 right-0 z-[60] w-[80%] max-w-[300px] bg-background border-l border-border shadow-2xl transform transition-transform duration-300 ease-out md:hidden flex flex-col h-[100dvh]
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
           {/* Sidebar Header */}
-          <div className="p-5 flex items-center justify-between border-b border-border">
+          <div className="p-5 flex items-center justify-between border-b border-border bg-card">
               <span className="text-lg font-black text-foreground">Menu</span>
               <button 
                 onClick={() => setIsOpen(false)}

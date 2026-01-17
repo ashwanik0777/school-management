@@ -279,8 +279,12 @@ function FeatureCard({ icon, color, title, description }: { icon: React.ReactNod
 
 function StatItem({ number, label, icon }: { number: string, label: string, icon: React.ReactNode }) {
     return (
-        <div className="text-center group cursor-default">
-            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+        <div className="text-center group p-6 rounded-3xl bg-background border border-border shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <div className="scale-150 transform rotate-12">{icon}</div>
+            </div>
+            
+            <div className="mx-auto w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
                 {icon}
             </div>
             <div className="text-4xl md:text-5xl font-black text-foreground mb-2 tracking-tight">{number}</div>
