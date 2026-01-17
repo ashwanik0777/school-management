@@ -48,9 +48,9 @@ export default function AcademicCalendarPage() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Stay updated with key dates, examinations, holidays, and school events for the Academic Session 2026-27.
           </p>
-          <button className="mt-8 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 mx-auto shadow-lg hover:shadow-primary/30">
+          <a href="/calendar.pdf" download className="mt-8 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 mx-auto shadow-lg hover:shadow-primary/30">
               <Download className="w-5 h-5" /> Download PDF Calendar
-          </button>
+          </a>
         </div>
       </section>
 

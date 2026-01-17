@@ -84,9 +84,9 @@ export default function CareersPage() {
                                   <span>{pos.location}</span>
                               </div>
                           </div>
-                          <button className="px-6 py-2 rounded-xl bg-primary/10 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 self-start md:self-auto">
+                          <a href="mailto:careers@edubalance.edu" className="px-6 py-2 rounded-xl bg-primary/10 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center gap-2 self-start md:self-auto">
                               Apply Now <ArrowRight className="w-4 h-4" />
-                          </button>
+                          </a>
                       </div>
                   ))}
               </div>

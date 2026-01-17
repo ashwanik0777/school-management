@@ -77,9 +77,9 @@ export default function DigitalLibraryPage() {
                               <h3 className="font-bold text-lg mb-1 line-clamp-2 group-hover:text-primary transition-colors">{res.title}</h3>
                               <p className="text-sm text-muted-foreground mb-4">by {res.author}</p>
                               
-                              <button className="w-full py-2 rounded-lg border border-border text-sm font-bold hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2">
+                              <a href="/brochure.pdf" download className="w-full py-2 rounded-lg border border-border text-sm font-bold hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2">
                                   <Download className="w-4 h-4" /> Download ({res.size})
-                              </button>
+                              </a>
                           </div>
                       ))}
                   </div>

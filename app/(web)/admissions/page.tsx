@@ -30,13 +30,13 @@ export default function AdmissionsPage() {
             We are looking for students who are curious, creative, and ready to make a difference. Our admissions process is designed to get to know the whole child.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+              <Link href="/contact" className="px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center">
                   Apply Online Now
-              </button>
-              <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+              </Link>
+              <a href="/prospectus.pdf" download className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
                   <Download className="w-5 h-5" />
                   Download Prospectus
-              </button>
+              </a>
           </div>
         </div>
       </section>
@@ -135,9 +135,9 @@ export default function AdmissionsPage() {
                                <DocItem text="Aadhar Card / ID Proof of parents" />
                                <DocItem text="Medical Fitness Certificate" />
                            </ul>
-                           <button className="w-full mt-8 py-3 rounded-xl border-2 border-dashed border-primary/30 text-primary font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+                           <a href="/brochure.pdf" download="checklist.pdf" className="w-full mt-8 py-3 rounded-xl border-2 border-dashed border-primary/30 text-primary font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
                                <Download className="w-4 h-4" /> Download Checklist PDF
-                           </button>
+                           </a>
                        </div>
                    </div>
                </div>
@@ -155,10 +155,10 @@ export default function AdmissionsPage() {
                   Our admissions team is here to help guide you through the process.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <Link href="/coming-soon" className="flex items-center gap-2 px-6 py-3 bg-secondary/10 hover:bg-secondary/20 rounded-xl font-bold text-foreground transition-all">
+                  <Link href="/admission-policy" className="flex items-center gap-2 px-6 py-3 bg-secondary/10 hover:bg-secondary/20 rounded-xl font-bold text-foreground transition-all">
                       <HelpCircle className="w-5 h-5" /> Visit FAQ Page
                   </Link>
-                   <Link href="/coming-soon" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30">
+                   <Link href="/contact" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30">
                       <Phone className="w-5 h-5" /> Contact Admissions
                   </Link>
               </div>

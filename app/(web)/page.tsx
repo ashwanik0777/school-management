@@ -33,14 +33,14 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
-                  href="/coming-soon" 
+                  href="/admissions" 
                   className="px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
                   Apply Now
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link 
-                  href="/coming-soon" 
+                  href="/gallery" 
                   className="px-8 py-4 bg-background border-2 border-border text-foreground rounded-xl font-bold hover:bg-muted transition-all flex items-center justify-center gap-2 hover:-translate-y-1"
                 >
                   <Play className="w-5 h-5 fill-current" />
@@ -174,7 +174,7 @@ export default function HomePage() {
                       <span className="text-primary font-bold tracking-wider uppercase text-sm">Life at EduBalance</span>
                       <h2 className="text-3xl md:text-5xl font-black text-foreground mt-2">Beyond the Classroom</h2>
                   </div>
-                  <Link href="/coming-soon" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
+                  <Link href="/gallery" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
                       View Full Gallery <ArrowRight className="w-5 h-5" />
                   </Link>
               </div>
@@ -248,12 +248,12 @@ export default function HomePage() {
                   Admissions are closing soon for the upcoming academic year. Secure your spot today and give your child the best foundation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                  <Link href="/admissions" className="px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center">
                       Apply for Admission
-                  </button>
-                  <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-all">
+                  </Link>
+                  <a href="/brochure.pdf" download className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center">
                       Download Brochure
-                  </button>
+                  </a>
               </div>
           </div>
       </section>
