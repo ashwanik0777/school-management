@@ -31,11 +31,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-text-primary mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Academic Calendar</Link></li>
-              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Admission Policy</Link></li>
-              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">School Gallery</Link></li>
-              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link href="/coming-soon" className="hover:text-primary transition-colors">Digital Library</Link></li>
+              <li><Link href="/calendar" className="hover:text-primary transition-colors">Academic Calendar</Link></li>
+              <li><Link href="/admission-policy" className="hover:text-primary transition-colors">Admission Policy</Link></li>
+              <li><Link href="/gallery" className="hover:text-primary transition-colors">School Gallery</Link></li>
+              <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/digital-library" className="hover:text-primary transition-colors">Digital Library</Link></li>
             </ul>
           </div>
 
@@ -107,11 +107,11 @@ export default function Footer() {
           {/* Right: Legal & Visitors */}
           <div className="flex-1 flex flex-col items-center md:items-end gap-2">
               <div className="flex gap-4 text-xs font-medium text-text-secondary">
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                  <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
                   <span className="text-border">|</span>
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Terms of Use</Link>
+                  <Link href="/terms" className="hover:text-primary transition-colors">Terms of Use</Link>
                   <span className="text-border">|</span>
-                  <Link href="/coming-soon" className="hover:text-primary transition-colors">Sitemap</Link>
+                  <Link href="/sitemap" className="hover:text-primary transition-colors">Sitemap</Link>
               </div>
           </div>
         </div>
