@@ -95,13 +95,35 @@ export default function StudentLayout({
 
         {/* Bottom Actions */}
         <div className="p-4 mt-auto">
-            <Link 
-              href="/login"
-              className="flex items-center justify-center gap-2 p-3 text-error hover:bg-error/10 hover:text-red-600 rounded-2xl transition-all w-full font-bold text-sm"
-            >
-                <LogOut className="w-5 h-5" />
-                <span>Sign Out</span>
-            </Link>
+            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700 shadow-sm group cursor-pointer">
+                {/* Avatar */}
+                <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0 border-2 border-white dark:border-slate-600 shadow-sm relative">
+                    <img 
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" 
+                      alt="Profile" 
+                      className="w-full h-full object-cover"
+                    />
+                </div>
+                
+                {/* User Info */}
+                <div className="flex-1 min-w-0">
+                    <h4 className="font-bold text-sm text-slate-800 dark:text-white truncate group-hover:text-blue-600 transition-colors">
+                        Alex Johnson
+                    </h4>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                        Student
+                    </p>
+                </div>
+
+                {/* Logout Button */}
+                <Link 
+                  href="/login"
+                  className="p-2 rounded-xl text-slate-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all focus:outline-none focus:ring-2 focus:ring-red-500/20"
+                  aria-label="Logout"
+                >
+                    <LogOut className="w-5 h-5" />
+                </Link>
+            </div>
         </div>
       </aside>
 
