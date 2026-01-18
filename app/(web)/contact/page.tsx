@@ -24,9 +24,9 @@ export default function ContactPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 overflow-hidden bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+      <section className="relative py-24 lg:py-32 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=2070')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-zinc-950/85"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-sm font-bold mb-6 backdrop-blur-sm animate-fade-in">
             We're Here to Help

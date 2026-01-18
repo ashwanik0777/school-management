@@ -17,8 +17,9 @@ export default function AdmissionsPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      <section className="relative py-20 lg:py-28 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 to-black/60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-sm font-bold mb-6 backdrop-blur-sm">
             Academic Year 2026-2027

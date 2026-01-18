@@ -7,8 +7,9 @@ export default function PrivacyPolicyPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      <section className="relative py-20 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
           <Shield className="w-16 h-16 mx-auto mb-6 opacity-90" />
           <h1 className="text-4xl md:text-5xl font-black mb-6">Privacy Policy</h1>

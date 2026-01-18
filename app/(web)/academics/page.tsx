@@ -17,8 +17,9 @@ export default function AcademicsPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/mathematics.png')] opacity-10"></div>
+      <section className="relative py-20 lg:py-28 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 to-teal-900/80"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-sm font-bold mb-6 backdrop-blur-sm">
             Excellence in Education
