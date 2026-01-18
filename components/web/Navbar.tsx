@@ -51,7 +51,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <ThemeToggle />
               <Link 
-                href="/dashboard" 
+                href="/login" 
                 className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white hover:bg-primary/90 rounded-xl shadow-md shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all font-semibold text-sm active:scale-95"
               >
                 <LogIn className="w-4 h-4" />
