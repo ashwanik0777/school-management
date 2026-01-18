@@ -38,7 +38,7 @@ export default function SitemapPage() {
 
               <SitemapGroup title="Academics & Faculty">
                   <SitemapLink href="/academics" label="Curriculum Overview" icon={<BookOpen className="w-4 h-4"/>} />
-                  <SitemapLink href="/faculty" label="Faculty Directory" icon={<Users className="w-4 h-4"/>} />
+                  <SitemapLink href="/teachers" label="Teachers Directory" icon={<Users className="w-4 h-4"/>} />
                   <SitemapLink href="/admissions" label="Admissions Process" icon={<GraduationCap className="w-4 h-4"/>} />
               </SitemapGroup>
 

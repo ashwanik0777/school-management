@@ -13,7 +13,7 @@ export default function Navbar() {
     { name: 'About Us', href: '/about', icon: Info },
     { name: 'Admissions', href: '/admissions', icon: GraduationCap },
     { name: 'Academics', href: '/academics', icon: BookOpen },
-    { name: 'Faculty', href: '/faculty', icon: Users },
+    { name: 'Teachers', href: '/teachers', icon: Users },
     { name: 'Contact', href: '/contact', icon: Phone },
   ];
 
