@@ -17,17 +17,16 @@ export default function AcademicsPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 to-teal-900/80"></div>
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/mathematics.png')] opacity-[0.03]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-sm font-bold mb-6 backdrop-blur-sm">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-6">
             Excellence in Education
           </span>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-foreground">
             Curriculum & <br className="hidden md:block"/> Methodology
           </h1>
-          <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
             Our academic framework is designed to challenge, inspire, and prepare students for a rapidly changing world through a blend of traditional values and modern pedagogy.
           </p>
         </div>

@@ -7,16 +7,15 @@ export default function PrivacyPolicyPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+      <section className="relative py-20 bg-gradient-to-b from-primary/5 to-background text-foreground overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          <Shield className="w-16 h-16 mx-auto mb-6 opacity-90" />
+          <Shield className="w-16 h-16 mx-auto mb-6 text-primary" />
           <h1 className="text-4xl md:text-5xl font-black mb-6">Privacy Policy</h1>
-          <p className="text-lg opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             At EduBalance, we value your trust and are committed to protecting the privacy of our students, parents, and staff.
           </p>
-          <p className="mt-4 text-sm opacity-70">
+          <p className="mt-4 text-sm text-muted-foreground/60">
             Last Updated: January 17, 2026
           </p>
         </div>

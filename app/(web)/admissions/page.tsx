@@ -17,24 +17,23 @@ export default function AdmissionsPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 to-black/60"></div>
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-sm font-bold mb-6 backdrop-blur-sm">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-6">
             Academic Year 2026-2027
           </span>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-foreground">
             Begin Your Journey <br className="hidden md:block"/> With EduBalance
           </h1>
-          <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
             We are looking for students who are curious, creative, and ready to make a difference. Our admissions process is designed to get to know the whole child.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center">
+              <Link href="/contact" className="px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center">
                   Apply Online Now
               </Link>
-              <a href="/prospectus.pdf" download className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+              <a href="/prospectus.pdf" download className="px-8 py-4 bg-transparent border-2 border-primary/10 text-primary rounded-xl font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2">
                   <Download className="w-5 h-5" />
                   Download Prospectus
               </a>
