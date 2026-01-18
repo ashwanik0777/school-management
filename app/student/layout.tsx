@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { 
   Home,
   BookOpen, 
@@ -11,7 +12,6 @@ import {
   Library, 
   User, 
   LogOut, 
-  Settings,
   Menu,
   X,
   GraduationCap,
@@ -90,60 +90,78 @@ export default function StudentLayout({
 
         {/* Bottom Actions */}
         <div className="p-4 mt-auto">
-            <div className="flex items-center justify-between p-3 bg-secondary/20 dark:bg-black/20 border border-border/50 rounded-2xl">
-                <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="w-10 h-10 rounded-full border-2 border-primary/20 p-0.5 shrink-0">
-                         <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-xs">
-                           AJ
-                         </div>
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                        <span className="text-sm font-bold text-text-primary truncate">Alex Johnson</span>
-                        <span className="text-[10px] uppercase font-semibold text-text-secondary/80 truncate">Class 12-A</span>
-                    </div>
-                </div>
-                
-                <Link 
-                  href="/login"
-                  className="p-2 text-text-secondary hover:text-error hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all shrink-0"
-                >
-                    <LogOut className="w-5 h-5" />
-                </Link>
-            </div>
+            <Link 
+              href="/login"
+              className="flex items-center justify-center gap-2 p-3 text-error hover:bg-error/10 hover:text-red-600 rounded-2xl transition-all w-full font-bold text-sm"
+            >
+                <LogOut className="w-5 h-5" />
+                <span>Sign Out</span>
+            </Link>
         </div>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 md:ml-[17rem] p-4 md:p-8 overflow-y-auto h-screen scrollbar-hide">
-          {/* Header (Search & Actions) */}
-          <header className="flex items-center justify-between gap-4 mb-8">
-              <button 
-                onClick={() => setIsSidebarOpen(true)}
-                className="md:hidden p-2 bg-secondary/10 rounded-xl text-text-secondary"
-              >
-                  <Menu className="w-6 h-6" />
-              </button>
-
-              <div className="hidden md:flex flex-1 max-w-xl relative group">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Search className="h-5 w-5 text-text-secondary/50 group-focus-within:text-primary transition-colors" />
+          {/* Header */}
+          <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+              
+              {/* Left: Mobile Menu & Welcome */}
+              <div className="flex items-center gap-4">
+                  <button 
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="md:hidden p-2 bg-secondary/10 rounded-xl text-text-secondary"
+                  >
+                      <Menu className="w-6 h-6" />
+                  </button>
+                  
+                  <div>
+                      <h2 className="text-xl font-bold text-text-primary">Welcome back, Alex! 👋</h2>
+                      <p className="text-sm text-text-secondary hidden md:block">Here is what's happening with your academic life today.</p>
                   </div>
-                  <input
-                      type="text"
-                      className="block w-full pl-10 pr-3 py-3 rounded-2xl bg-secondary/5 border-none dark:bg-card focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all font-medium placeholder:text-text-secondary/50"
-                      placeholder="Search for assignments, subjects..."
-                  />
               </div>
 
-              <div className="flex items-center gap-3">
-                  <button className="p-3 rounded-2xl hover:bg-secondary/10 text-text-secondary transition-colors relative">
-                      <Bell className="w-6 h-6" />
-                      <span className="absolute top-3 right-3 w-2 h-2 bg-error rounded-full ring-2 ring-background"></span>
-                  </button>
-                  <button className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-0.5">
-                      <CreditCard className="w-4 h-4" />
-                      <span>Pay Fees</span>
-                  </button>
+              {/* Right: Actions */}
+              <div className="flex items-center gap-2 md:gap-4 justify-end flex-1">
+                  
+                  {/* Search Bar */}
+                  <div className="hidden lg:flex max-w-sm w-full relative group">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <Search className="h-5 w-5 text-text-secondary/50 group-focus-within:text-primary transition-colors" />
+                      </div>
+                      <input
+                          type="text"
+                          className="block w-full pl-10 pr-3 py-2.5 rounded-2xl bg-secondary/5 border-none dark:bg-card focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all font-medium placeholder:text-text-secondary/50"
+                          placeholder="Search..."
+                      />
+                  </div>
+
+                  <div className="flex items-center gap-2 md:gap-3">
+                      {/* Theme Toggle */}
+                      <ThemeToggle />
+                      
+                      {/* Bell */}
+                      <button className="p-2.5 rounded-xl hover:bg-secondary/10 text-text-secondary transition-colors relative">
+                          <Bell className="w-5 h-5" />
+                          <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full ring-2 ring-background"></span>
+                      </button>
+                  </div>
+
+                  {/* Profile Divider */}
+                  <div className="hidden sm:block h-8 w-px bg-border mx-1"></div>
+
+                  {/* Profile Section */}
+                  <div className="flex items-center gap-3 pl-2">
+                       <div className="text-right hidden sm:block">
+                          <p className="text-sm font-bold text-text-primary">Alex Johnson</p>
+                          <p className="text-xs text-text-secondary font-medium">Class 12-A</p>
+                       </div>
+                       <Link href="/student/profile" className="w-10 h-10 rounded-full border-2 border-primary/20 p-0.5 shrink-0 cursor-pointer hover:scale-105 transition-transform">
+                            <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+                              AJ
+                            </div>
+                       </Link>
+                  </div>
+
               </div>
           </header>
 
