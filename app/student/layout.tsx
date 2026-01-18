@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { useTheme } from 'next-themes';
 import { 
   Home,
   BookOpen, 
@@ -16,7 +16,9 @@ import {
   X,
   GraduationCap,
   Bell,
-  Search
+  Search,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 export default function StudentLayout({
@@ -26,6 +28,7 @@ export default function StudentLayout({
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const { setTheme, theme } = useTheme();
 
   const menuItems = [
     { name: 'Dashboard', icon: Home, href: '/student' },
@@ -115,8 +118,10 @@ export default function StudentLayout({
                   </button>
                   
                   <div>
-                      <h2 className="text-xl font-bold text-text-primary">Welcome back, Alex! 👋</h2>
-                      <p className="text-sm text-text-secondary hidden md:block">Here is what's happening with your academic life today.</p>
+                      <h2 className="text-3xl font-black text-slate-800 dark:text-white tracking-tight flex items-center gap-2">
+                        Hello, Alex! <span className="animate-wave inline-block origin-[70%_70%]">👋</span>
+                      </h2>
+                      <p className="text-slate-500 dark:text-slate-400 font-medium">Welcome back to your control center.</p>
                   </div>
               </div>
 
@@ -125,41 +130,51 @@ export default function StudentLayout({
                   
                   {/* Search Bar */}
                   <div className="hidden lg:flex max-w-sm w-full relative group">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Search className="h-5 w-5 text-text-secondary/50 group-focus-within:text-primary transition-colors" />
+                      <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                          <Search className="h-5 w-5 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
                       </div>
                       <input
                           type="text"
-                          className="block w-full pl-10 pr-3 py-2.5 rounded-2xl bg-secondary/5 border-none dark:bg-card focus:ring-2 focus:ring-primary/20 focus:bg-background transition-all font-medium placeholder:text-text-secondary/50"
+                          className="block w-full pl-10 pr-4 py-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-slate-600 dark:text-slate-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium placeholder:text-slate-400"
                           placeholder="Search..."
                       />
                   </div>
 
                   <div className="flex items-center gap-2 md:gap-3">
                       {/* Theme Toggle */}
-                      <ThemeToggle />
+                      <button
+                        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                        className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-slate-600 dark:text-slate-300 relative overflow-hidden group"
+                        aria-label="Toggle theme"
+                      >
+                         <div className="relative w-5 h-5">
+                            <Sun className="absolute inset-0 h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-amber-500" />
+                            <Moon className="absolute inset-0 h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-blue-500" />
+                         </div>
+                      </button>
                       
                       {/* Bell */}
-                      <button className="p-2.5 rounded-xl hover:bg-secondary/10 text-text-secondary transition-colors relative">
-                          <Bell className="w-5 h-5" />
-                          <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full ring-2 ring-background"></span>
+                      <button className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-slate-600 dark:text-slate-300 relative group">
+                          <Bell className="w-5 h-5 group-hover:text-blue-500 transition-colors" />
+                          <span className="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-slate-800"></span>
                       </button>
                   </div>
 
-                  {/* Profile Divider */}
-                  <div className="hidden sm:block h-8 w-px bg-border mx-1"></div>
-
                   {/* Profile Section */}
                   <div className="flex items-center gap-3 pl-2">
-                       <div className="text-right hidden sm:block">
-                          <p className="text-sm font-bold text-text-primary">Alex Johnson</p>
-                          <p className="text-xs text-text-secondary font-medium">Class 12-A</p>
+                       <div className="flex items-center gap-3 bg-white dark:bg-slate-800 border-l border-slate-100 dark:border-slate-700 rounded-2xl p-1.5 pr-5 shadow-sm hover:shadow-md transition-all cursor-pointer group">
+                           <Link href="/student/profile" className="w-10 h-10 rounded-full shrink-0 bg-slate-100 dark:bg-slate-700 overflow-hidden relative">
+                                <img 
+                                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" 
+                                  alt="Alex"
+                                  className="w-full h-full object-cover"
+                                />
+                           </Link>
+                           <div className="hidden sm:block">
+                              <p className="text-sm font-bold text-slate-800 dark:text-white leading-none group-hover:text-blue-500 transition-colors">Alex Johnson</p>
+                              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5">Class 12-A</p>
+                           </div>
                        </div>
-                       <Link href="/student/profile" className="w-10 h-10 rounded-full border-2 border-primary/20 p-0.5 shrink-0 cursor-pointer hover:scale-105 transition-transform">
-                            <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
-                              AJ
-                            </div>
-                       </Link>
                   </div>
 
               </div>

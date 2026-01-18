@@ -19,11 +19,7 @@ export default function AcademicsPage() {
     <div className="space-y-6">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-           <h1 className="text-2xl font-bold text-slate-800 dark:text-white">Academic Overview</h1>
-           <p className="text-slate-500 mt-1">Manage your timetable, subjects, and assignments.</p>
-        </div>
+      <div className="flex flex-col md:flex-row  items-start md:items-center gap-4">
         <div className="flex bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
             <TabButton active={activeTab === 'timetable'} onClick={() => setActiveTab('timetable')} label="Timetable" />
             <TabButton active={activeTab === 'subjects'} onClick={() => setActiveTab('subjects')} label="Subjects & Syllabus" />
