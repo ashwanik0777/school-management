@@ -18,7 +18,8 @@ import {
   Bell,
   Search,
   Sun,
-  Moon
+  Moon,
+  Settings
 } from 'lucide-react';
 
 export default function StudentLayout({
@@ -38,6 +39,7 @@ export default function StudentLayout({
     { name: 'Library', icon: Library, href: '/student/library' },
     { name: 'Exams & Result', icon: GraduationCap, href: '/student/exams' },
     { name: 'My Profile', icon: User, href: '/student/profile' },
+    { name: 'Settings', icon: Settings, href: '/student/settings' },
   ];
 
   return (
