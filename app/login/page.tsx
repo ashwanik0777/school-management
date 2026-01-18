@@ -29,8 +29,8 @@ export default function LoginPage() {
       if (role === 'student') {
         router.push('/student');
       } else {
-        // Staff portal not ready yet
-        alert('Staff portal is coming soon!');
+        // Redirect to Faculty Dashboard
+        router.push('/faculty');
       }
     }, 1000);
   };

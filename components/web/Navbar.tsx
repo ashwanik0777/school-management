@@ -118,7 +118,7 @@ export default function Navbar() {
           {/* Sidebar Footer */}
           <div className="p-5 border-t border-border bg-muted/20">
               <Link 
-                href="/dashboard"
+                href="/login"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-95"
               >
