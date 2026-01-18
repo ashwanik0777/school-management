@@ -17,7 +17,7 @@ export default function AdmissionsPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-secondary/10 border-b border-border">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-6">

@@ -66,12 +66,16 @@ export default function FacultyPage() {
     <div className="bg-background min-h-screen">
       
       {/* Hero Section */}
-      <section className="py-20 lg:py-28 bg-secondary/5 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-foreground">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-secondary/10 border-b border-border">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-6">
+            Expert Guidance
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-foreground">
             Meet Our <span className="text-primary">Mentors</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
             Our faculty consists of passionate educators, industry experts, and lifelong learners dedicated to shaping the future of every student.
           </p>
         </div>
